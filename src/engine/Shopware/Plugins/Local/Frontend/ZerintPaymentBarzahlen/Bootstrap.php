@@ -265,7 +265,7 @@ class Shopware_Plugins_Frontend_ZerintPaymentBarzahlen_Bootstrap extends Shopwar
      */
     public function getVersion()
     {
-        return "1.0.4";
+        return "1.0.5";
     }
 
     /**
@@ -276,6 +276,14 @@ class Shopware_Plugins_Frontend_ZerintPaymentBarzahlen_Bootstrap extends Shopwar
     public function Payment()
     {
         return Shopware()->Payments()->fetchRow(array('name=?' => 'barzahlen'));
+    }
+
+    /**
+     * Register Barzahlen view directory.
+     */
+    protected function registerTemplateDir()
+    {
+        $this->Application()->Template()->addTemplateDir($this->Path() . 'Views/', 'barzahlen');
     }
 
     /**
@@ -297,7 +305,7 @@ class Shopware_Plugins_Frontend_ZerintPaymentBarzahlen_Bootstrap extends Shopwar
     public function onNotification(Enlight_Event_EventArgs $args)
     {
         $view = $args->getSubject()->View();
-        $view->addTemplateDir(dirname(__FILE__) . '/Views/');
+        $this->registerTemplateDir();
         $view->extendsTemplate('frontend/payment_barzahlen/notify.tpl');
     }
 
@@ -310,10 +318,14 @@ class Shopware_Plugins_Frontend_ZerintPaymentBarzahlen_Bootstrap extends Shopwar
     {
         if (isset(Shopware()->Session()->BarzahlenResponse)) {
             $view = $args->getSubject()->View();
-            $view->addTemplateDir(dirname(__FILE__) . '/Views/');
-            $view->assign('infotext1', Shopware()->Session()->BarzahlenResponse['infotext-1']);
-            $view->extendsTemplate('frontend/payment_barzahlen/finish.tpl');
-            unset(Shopware()->Session()->BarzahlenResponse);
+            $this->registerTemplateDir();
+            $view->barzahlen_infotext_1 = Shopware()->Session()->BarzahlenResponse['infotext-1'];
+            $view->extendsBlock(
+                'frontend_checkout_finish_teaser',
+                '{include file="frontend/payment_barzahlen/infotext.tpl"}' . "\n",
+                'prepend'
+            );
+
             if (isset(Shopware()->Session()->BarzahlenProcess)) {
                 unset(Shopware()->Session()->BarzahlenProcess);
             }
@@ -354,8 +366,8 @@ class Shopware_Plugins_Frontend_ZerintPaymentBarzahlen_Bootstrap extends Shopwar
 
         if (isset(Shopware()->Session()->BarzahlenPaymentError)) {
             $view = $args->getSubject()->View();
-            $view->addTemplateDir(dirname(__FILE__) . '/Views/');
-            $view->assign('BarzahlenPaymentError', Shopware()->Session()->BarzahlenPaymentError);
+            $this->registerTemplateDir();
+            $view->barzahlen_payment_error = Shopware()->Session()->BarzahlenPaymentError;
             $view->extendsTemplate('frontend/payment_barzahlen/error.tpl');
             unset(Shopware()->Session()->BarzahlenPaymentError);
         }

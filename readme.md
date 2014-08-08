@@ -4,9 +4,12 @@
 https://integration.barzahlen.de/de/shopsysteme/shopware/nutzerhandbuch
 
 ## Current Version
-1.0.4
+1.0.5
 
 ## Changelog
+
+### 1.0.5 (07.08.2013)
+* fixed extension of default templates
 
 ### 1.0.4 (25.06.2013)
 * updated Barzahlen API PHP SDK
