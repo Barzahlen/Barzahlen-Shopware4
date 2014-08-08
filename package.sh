@@ -1,5 +1,5 @@
 #!/bin/bash
-DST="barzahlen_shopware4_plugin_v1.0.4"
+DST="barzahlen_shopware4_plugin_v1.0.5"
 if [ -d $DST ]; then
 rm -R $DST
 fi
