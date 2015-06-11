@@ -4,21 +4,7 @@ require_once dirname(__FILE__) . '/Components/Barzahlen/Api/loader.php';
 /**
  * Barzahlen Payment Module (Shopware 4)
  *
- * NOTICE OF LICENSE
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as published by
- * the Free Software Foundation; version 3 of the License
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU Affero General Public License
- * along with this program.  If not, see http://www.gnu.org/licenses/
- *
- * @copyright   Copyright (c) 2012 Zerebro Internet GmbH (http://www.barzahlen.de)
+ * @copyright   Copyright (c) 2015 Cash Payment Solutions GmbH (https://www.barzahlen.de)
  * @author      Alexander Diebler
  * @license     http://opensource.org/licenses/AGPL-3.0  GNU Affero General Public License, version 3 (GPL-3.0)
  */
@@ -247,12 +233,12 @@ class Shopware_Plugins_Frontend_ZerintPaymentBarzahlen_Bootstrap extends Shopwar
         $img = 'https://cdn.barzahlen.de/images/barzahlen_logo.png';
         return array(
             'version' => $this->getVersion(),
-            'autor' => 'Zerebro Internet GmbH',
+            'autor' => 'Cash Payment Solutions GmbH',
             'label' => "Barzahlen Payment Module",
             'source' => "Local",
             'description' => '<p><img src="' . $img . '" alt="Barzahlen" /></p> <p>Barzahlen bietet Ihren Kunden die Möglichkeit, online bar zu bezahlen. Sie werden in Echtzeit über die Zahlung benachrichtigt und profitieren von voller Zahlungsgarantie und neuen Kundengruppen. Sehen Sie wie Barzahlen funktioniert: <a href="http://www.barzahlen.de/partner/funktionsweise" target="_blank">http://www.barzahlen.de/partner/funktionsweise</a></p><p>Sie haben noch keinen Barzahlen-Account? Melden Sie sich hier an: <a href="https://partner.barzahlen.de/user/register" target="_blank">https://partner.barzahlen.de/user/register</a></p>',
             'license' => 'GNU GPL v3.0',
-            'copyright' => 'Copyright (c) 2013, Zerebro Internet GmbH',
+            'copyright' => 'Copyright (c) 2015, Cash Payment Solutions GmbH',
             'support' => 'support@barzahlen.de',
             'link' => 'http://www.barzahlen.de'
         );
@@ -265,7 +251,7 @@ class Shopware_Plugins_Frontend_ZerintPaymentBarzahlen_Bootstrap extends Shopwar
      */
     public function getVersion()
     {
-        return "1.0.5";
+        return "1.0.6";
     }
 
     /**
@@ -477,7 +463,7 @@ class Shopware_Plugins_Frontend_ZerintPaymentBarzahlen_Bootstrap extends Shopwar
                 if ($response != false) {
                     echo '<script type="text/javascript">
                           if(confirm(unescape("F%FCr das Barzahlen-Plugin ist eine neue Version (' . (string) $response . ') verf%FCgbar. Jetzt ansehen?"))) {
-                            window.location.href = "http://www.barzahlen.de/partner/integration/shopsysteme/12/shopware";
+                            window.location.href = "https://integration.barzahlen.de/de/shopsysteme/shopware";
                           }
                           else {
                             window.location.reload();

@@ -1,12 +1,17 @@
 # Barzahlen Payment Module (Shopware 4)
 
 ## User Manual
-https://integration.barzahlen.de/de/shopsysteme/shopware/nutzerhandbuch
+DE - https://integration.barzahlen.de/de/shopsysteme/shopware/nutzerhandbuch  
+EN - https://integration.barzahlen.de/en/shopsystems/shopware/user-manual
 
 ## Current Version
-1.0.5
+1.0.6
 
 ## Changelog
+
+### 1.0.6 (11.06.2015)
+* improved payment selection
+* updated to Barzahlen PHP SDK v1.1.8
 
 ### 1.0.5 (07.08.2013)
 * fixed extension of default templates
@@ -33,10 +38,10 @@ https://integration.barzahlen.de/de/shopsysteme/shopware/nutzerhandbuch
 * initial release
 
 ## Support
-The Barzahlen Team will happily assist you with any problems or questions. Send us an email to support@barzahlen.de or use the contact form at http://www.barzahlen.de/partner/integration.
+The Barzahlen Team will happily assist you with any problems or questions. Send us an email to support@barzahlen.de or use the contact form at https://integration.barzahlen.de/en/support.
 
 ## Copyright
-(c) 2014, Cash Payment Solutions GmbH  
+(c) 2015, Cash Payment Solutions GmbH  
 https://www.barzahlen.de
 
 ## NOTICE OF LICENSE
